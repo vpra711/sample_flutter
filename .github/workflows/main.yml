@@ -1,0 +1,14 @@
+name: web
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        required: true
+      platform:
+        default: "web"
+        type: choice
+        options:
+          - iOS
+          - android
+          - web
+    
