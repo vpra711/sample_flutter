@@ -4,11 +4,24 @@ on:
     inputs:
       branch:
         required: true
+        description: "select the branch to trigger action"
       platform:
+        description: "which os platform to run the action"
         default: "web"
         type: choice
         options:
           - iOS
           - android
           - web
+      environment:
+        description: "select the environment - prod, stage and dev"
+        default: "stage"
+        type: choice
+        options:
+          - production
+          - staging
+          - development
+jobs:
+  build:
+    runs-on: Ubuntu-latest
     

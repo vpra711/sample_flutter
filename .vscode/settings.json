@@ -20,6 +20,7 @@
 		"android/": true,
 		"ios/": true,
 		"build/": true,
+		".github/": false,
 	},
 	"dart.flutterHotReloadOnSave": "never",
 }
