@@ -2,9 +2,6 @@ name: web
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        required: true
-        description: "select the branch to trigger action"
       platform:
         description: "which os platform to run the action"
         default: "web"
@@ -13,6 +10,7 @@ on:
           - iOS
           - android
           - web
+          - all
       environment:
         description: "select the environment - prod, stage and dev"
         default: "stage"
