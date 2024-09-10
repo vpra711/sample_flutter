@@ -1,9 +1,9 @@
-name: web
+name: depolyment
 on:
   workflow_dispatch:
     inputs:
       platform:
-        description: "which os platform to run the action"
+        description: "select the platform to deploy"
         default: "web"
         type: choice
         options:

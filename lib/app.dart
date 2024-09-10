@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<HomeBloc>(create: (context) => GetIt.instance())
       ],
       child: MaterialApp(
-        title: "BLoC sample",
+        title: "sample project",
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
