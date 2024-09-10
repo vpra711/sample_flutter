@@ -2,13 +2,25 @@ name: web
 on:
   workflow_dispatch:
     inputs:
-      branch:
-        required: true
       platform:
+        description: "which os platform to run the action"
         default: "web"
         type: choice
         options:
           - iOS
           - android
           - web
-    
+          - all
+      environment:
+        description: "select the environment - prod, stage and dev"
+        default: "stage"
+        type: choice
+        options:
+          - production
+          - staging
+          - development
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "testing with ubuntu-latest" 
