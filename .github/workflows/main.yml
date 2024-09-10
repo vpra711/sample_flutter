@@ -10,7 +10,7 @@ on:
           - iOS
           - android
           - web
-          - everything
+          - all
       environment:
         description: "select the environment - prod, stage and dev"
         default: "stage"
