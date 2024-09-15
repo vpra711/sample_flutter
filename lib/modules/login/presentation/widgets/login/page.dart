@@ -22,7 +22,6 @@ class _LoginPageState extends State<LoginPage> {
 }
 
 extension _LoginBuilder on _LoginPageState {
-
   Widget _builder(BuildContext context, LoginState state) {
     List<Widget> widgets = List.empty(growable: true);
 
@@ -30,7 +29,8 @@ extension _LoginBuilder on _LoginPageState {
     widgets.add(const SPasswordField());
 
     switch (state.runtimeType) {
-      default: break;
+      default:
+        break;
     }
     return SButton(name: "Login", action: () => log("hi"));
   }

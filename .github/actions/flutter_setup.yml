@@ -1,0 +1,11 @@
+name: flutter_setup
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: git clone https://github.com/flutter/flutter.git
+  

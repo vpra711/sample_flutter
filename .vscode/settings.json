@@ -23,4 +23,7 @@
 		".github/": false,
 	},
 	"dart.flutterHotReloadOnSave": "never",
+	"yaml.schemas": {
+		"https://json.schemastore.org/github-workflow.json": "file:///v%3A/flutter/sample/.github/actions/flutter_setup.yml"
+	},
 }

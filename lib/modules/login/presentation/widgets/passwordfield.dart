@@ -5,6 +5,9 @@ class SPasswordField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const TextField(obscureText: true, obscuringCharacter: "*",);
+    return const TextField(
+      obscureText: true,
+      obscuringCharacter: "*",
+    );
   }
 }

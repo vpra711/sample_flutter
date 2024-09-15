@@ -1,0 +1,8 @@
+name: web depolyment
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "runing web deployment"

@@ -1,20 +1,20 @@
-name: depolyment
+name: "manual build release"
 on:
   workflow_dispatch:
     inputs:
       platform:
-        description: "select the platform to deploy"
-        default: "web"
         type: choice
+        description: "select a platform to deploy"
+        default: web
         options:
           - iOS
           - android
           - web
           - all
       environment:
-        description: "select the environment - prod, stage and dev"
-        default: "stage"
         type: choice
+        description: "select a environment - prod, stage and dev"
+        default: "stage"
         options:
           - production
           - staging

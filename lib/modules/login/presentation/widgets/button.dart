@@ -8,6 +8,10 @@ class SButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: action, style: const ButtonStyle(), child: Text(name),);
+    return ElevatedButton(
+      onPressed: action,
+      style: const ButtonStyle(),
+      child: Text(name),
+    );
   }
 }
