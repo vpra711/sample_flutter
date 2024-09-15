@@ -1,11 +1,41 @@
-name: flutter_setup
+# name: flutter_setup
+# on:
+#   workflow_dispatch:
+    
+# jobs:
+#   setup:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: ls
+#       - run: mkdir heelo
+#       - run: ls
+      # - run: git clone https://github.com/flutter/flutter.git
+name: Deploy Flutter Web to GitHub Pages
+
 on:
   workflow_dispatch:
-    
+
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: ls
-      # - run: git clone https://github.com/flutter/flutter.git
-  
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: 'stable'
+
+    - name: Install dependencies
+      run: flutter pub get
+
+    - name: Build Flutter web
+      run: flutter build web
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.PAT }}
+        publish_dir: ./build/web
