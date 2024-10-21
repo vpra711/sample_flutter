@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class STextField extends StatelessWidget {
-  const STextField({super.key});
+  final TextEditingController? controller;
+  const STextField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return const TextField();
+    return TextField(controller: controller,);
   }
 }

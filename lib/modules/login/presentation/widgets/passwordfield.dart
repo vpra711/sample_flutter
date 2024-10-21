@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class SPasswordField extends StatelessWidget {
-  const SPasswordField({super.key});
+  final TextEditingController? controller;
+  const SPasswordField({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return const TextField(
+    return TextField(
+      controller: controller,
       obscureText: true,
       obscuringCharacter: "*",
     );

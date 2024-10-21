@@ -3,10 +3,18 @@ part of 'login_bloc.dart';
 @immutable
 sealed class LoginState {}
 
-final class LoginInitial extends LoginState {}
+final class LoginInitialState extends LoginState {}
 
-final class LoginInProgress extends LoginState {}
+final class LoginInProgressState extends LoginState {}
 
-final class LoginSuccess extends LoginState {}
+final class LoginSuccessState extends LoginState {
+  final String username;
 
-final class LoginFailuare extends LoginState {}
+  LoginSuccessState({required this.username});
+}
+
+final class WrongPasswordState extends LoginState {}
+
+final class NoUserFoundState extends LoginState {}
+
+final class LoginFailuareState extends LoginState {}

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sample/modules/login/presentation/states/login_bloc/login_bloc.dart';
@@ -15,23 +13,52 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController? _usernameController;
+  TextEditingController? _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _usernameController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _usernameController?.dispose();
+    _passwordController?.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc, LoginState>(builder: _builder);
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          STextField(
+            controller: _usernameController,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          SPasswordField(controller: _passwordController),
+          const SizedBox(
+            height: 20,
+          ),
+          SButton(
+            name: "login",
+            action: _loginButtonAction,
+          ),
+        ],
+      ),
+    );
   }
-}
 
-extension _LoginBuilder on _LoginPageState {
-  Widget _builder(BuildContext context, LoginState state) {
-    List<Widget> widgets = List.empty(growable: true);
-
-    widgets.add(const STextField());
-    widgets.add(const SPasswordField());
-
-    switch (state.runtimeType) {
-      default:
-        break;
-    }
-    return SButton(name: "Login", action: () => log("hi"));
+  void _loginButtonAction() {
+    context.read<LoginBloc>().add(OnLogin(
+        username: _usernameController?.text ?? "",
+        password: _passwordController?.text ?? ""));
   }
 }
